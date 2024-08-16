@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync ngdrs-dc_rto.log with ngdrs-ag
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/sync_ngdrs_dc_rto.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
