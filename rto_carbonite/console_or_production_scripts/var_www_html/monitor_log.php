@@ -17,6 +17,21 @@ function formatRTO($seconds) {
     }
 }
 
+// Function to generate random color
+function generateRandomColor() {
+    return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
+}
+
+// Load server names from file
+$serverFile = 'servers.txt';
+$servers = file($serverFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+// Generate random colors for servers
+$buttonColors = [];
+foreach ($servers as $server) {
+    $buttonColors[$server] = generateRandomColor();
+}
+
 // Start HTML output
 ?>
 <!DOCTYPE html>
@@ -117,14 +132,6 @@ function formatRTO($seconds) {
         <div class="text-center mb-4 buttons">
             <!-- Buttons to select the server -->
             <?php
-            // Define button colors here
-            $buttonColors = [
-                'ngdrs-ag' => '#28a745', // Green color
-                'ngdrs-dc' => '#ffc107', // Yellow color
-                'ngdrs-dr' => '#dc3545', // Red color
-            ];
-
-            $servers = array_keys($buttonColors);
             foreach ($servers as $server) {
                 echo "<button class='btn btn-primary' style='background-color: {$buttonColors[$server]}; border-color: {$buttonColors[$server]};' onclick=\"loadLogData('$server')\">$server</button> ";
             }

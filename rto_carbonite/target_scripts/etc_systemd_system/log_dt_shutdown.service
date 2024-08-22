@@ -1,0 +1,12 @@
+[Unit]
+Description=Log DT Service Stop Time on Shutdown
+DefaultDependencies=no
+Before=shutdown.target reboot.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/log_dt_shutdown.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target

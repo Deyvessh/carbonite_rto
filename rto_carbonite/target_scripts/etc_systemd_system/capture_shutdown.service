@@ -1,0 +1,11 @@
+[Unit]
+Description=Capture DT Service Shutdown
+DefaultDependencies=no
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStop=/usr/local/bin/capture_shutdown.sh
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target

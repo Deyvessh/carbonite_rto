@@ -8,7 +8,8 @@ $selected_server = isset($_GET['server']) ? $_GET['server'] : 'ngdrs-ag';
 $log_files = [
     'ngdrs-dc' => '/var/log/ngdrs-dc_rto.log',
     'ngdrs-dr' => '/var/log/ngdrs-dr_rto.log',
-    'ngdrs-ag' => '/var/log/ngdrs-ag_rto.log'
+    'ngdrs-ag' => '/var/log/ngdrs-ag_rto.log',
+    'mplds-vg' => '/var/log/mplds-vg_rto.log'
 ];
 
 $log_contents = [];
